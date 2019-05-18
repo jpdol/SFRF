@@ -1,5 +1,5 @@
-# Sistema de Controle de Frequencia
-Sistema de frequência por Reconhecimento Facial - UEA/EST (2019)
+# SFRF
+Sistema de Frequência por Reconhecimento Facial - UEA/EST (2019)
 
 ### Projeto:
 
