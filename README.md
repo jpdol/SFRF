@@ -23,6 +23,6 @@ Sistema para controle de entrada e saída de colaboradores via reconhecimento fa
   
   - Jean Lima [(jpdol)](https://github.com/jpdol)
   - Diego Ferreira [(DiegoFr75)](https://github.com/DiegoFr75)
-  - Luiz Silva [(LuizCarlosS)] (https://github.com/LuizCarlosS)
-  - Lorena Araújo [(LorenaAraujo)] (https://github.com/LorenaAraujo)
+  - Luiz Silva [(LuizCarlosS)](https://github.com/LuizCarlosS)
+  - Lorena Araújo [(LorenaAraujo)](https://github.com/LorenaAraujo)
   - Hermann Hernani [(HermannHernani)](https://github.com/HermannHernani)
