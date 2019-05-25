@@ -104,7 +104,7 @@ class TelaLogin(tk.Frame):
 		if user != None:
 			self.controller.setUser(user)
 
-			if self.controller.user.funcao in ['ADM', 'Coordenador Geral']:
+			if self.controller.user.funcao in ['ADM']:
 				self.controller.mostrar_frame(TelaInicialAdm)
 			else:
 				self.controller.mostrar_frame(TelaInicialGestor)
@@ -276,18 +276,18 @@ class TelaCadastroColaborador(tk.Frame):
 
 
 	def update(self):
-		if self.controller.user.funcao in ['ADM', 'Coordenador Geral']:
+		if self.controller.user.funcao in ['ADM']:
 			lista_setor = retorna_lista_setor()
 			lista_setor.insert(0, "*Selecione o setor*")
 			self.entrada_setor['values'] = lista_setor
 
-			self.entrada_func['values'] = ['Funcionario', 'Gestor', 'Coordenador', 'ADM', 'Coordenador Geral']
+			self.entrada_func['values'] = ['Funcionario', 'Gestor', 'ADM']
 			self.entrada_func.current(0)	
 			self.entrada_setor.current(0)	
 			self.voltar = lambda: self.controller.mostrar_frame(TelaCadastro)
 			
 		else:
-			self.entrada_func['values'] = ['Funcionario', 'Gestor', 'Coordenador']
+			self.entrada_func['values'] = ['Funcionario', 'Gestor']
 			self.entrada_setor['values'] = [self.controller.user.setor]
 			self.entrada_func.current(0)	
 			self.entrada_setor.current(0)
@@ -440,7 +440,7 @@ class TelaConsulta2(tk.Frame):
 		bt_voltar = Button (self, width=10, text="Voltar", bg="white", command= lambda:self.voltar()).pack(side=BOTTOM, anchor=SW, pady=4, padx=4)
 		
 	def update(self):
-		if self.controller.user.funcao in ['ADM', 'Coordenador Geral']:
+		if self.controller.user.funcao in ['ADM']:
 			self.titulo = "Consultar > Laboratório: "+ self.setor
 			lista_colab = retorna_lista_colab(self.setor)
 			self.voltar = lambda:self.controller.mostrar_frame(TelaConsulta)
@@ -579,12 +579,12 @@ class TelaDadosColaborador(tk.Frame):
 		bt_voltar = Button(self, width=10, text="Voltar", bg="white", command=lambda:controller.mostrar_frame(TelaConsulta2)).pack(side=BOTTOM, anchor=SW, pady=4, padx=4)
 
 	def update(self):
-		if self.controller.user.funcao in ['ADM', 'Coordenador Geral']:
+		if self.controller.user.funcao in ['ADM']:
 			lista_setor = retorna_lista_setor()
 			self.entrada_setor['values'] = lista_setor
 			self.entrada_setor.current(lista_setor.index(self.colab.setor))
 
-			lista_func = ['Funcionario', 'Gestor', 'Coordenador', 'ADM', 'Coordenador Geral']
+			lista_func = ['Funcionario', 'Gestor', 'ADM']
 			self.entrada_func['values'] = lista_func
 			self.entrada_func.current(lista_func.index(self.colab.funcao))
 
@@ -593,7 +593,7 @@ class TelaDadosColaborador(tk.Frame):
 			self.entrada_setor['values'] = lista_setor
 			self.entrada_setor.current(lista_setor.index(self.colab.setor))
 
-			lista_func = ['Funcionario', 'Gestor', 'Coordenador']
+			lista_func = ['Funcionario', 'Gestor']
 			self.entrada_func['values'] = lista_func
 			self.entrada_func.current(lista_func.index(self.colab.funcao))
 
@@ -744,13 +744,15 @@ class TelaConsultaHistorico(tk.Frame):
 		bt_voltar = Button (self, width=10, text="Voltar", bg="white", command=lambda:self.voltar()).pack(side=BOTTOM, anchor=SW, pady=4, padx=4)
 
 	def update(self):
-		if self.controller.user.funcao in ['ADM', 'Coordenador Geral']:
+		if self.controller.user.funcao in ['ADM']:
 			self.voltar = lambda:self.controller.mostrar_frame(TelaInicialAdm)
+			lista_setor = retorna_lista_setor() + ['Não Ativos']
+			lista_setor.insert(0,"*Selecione o setor*")
 		else:
 			self.voltar = lambda:self.controller.mostrar_frame(TelaInicialGestor)
-		lista_setor = retorna_lista_setor() + ['Não Ativos']
-		lista_setor.insert(0,"*Selecione o setor*")
-
+			lista_setor = list([self.controller.user.setor])
+		
+	
 		self.entrada_setor['values'] = lista_setor
 		self.entrada_setor.current(0)
 
