@@ -12,7 +12,7 @@ class SFRFapp(tk.Tk):
 		self.user = Colaborador()
 		tk.Tk.__init__(self, *args, **kwargs)
 
-		self.iconbitmap(r'C:\\Users\\Diego\\Desktop\\SFRF - parcial\\Aplicação\\imagens\\hub.ico')
+		self.iconbitmap(r'.\\imagens\\hub.ico')
 	
 		self.container = tk.Frame(self)
 		self.container.pack(side="top", fill="both", expand=True)
